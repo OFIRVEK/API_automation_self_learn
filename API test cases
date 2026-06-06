@@ -1,0 +1,44 @@
+in pytest we need to:
+
+
+1. do import to "requests" and "pytest"
+2. create a setup function for the test: ## def {setup function name} (): and then a function for each API test
+3. use "requests.get(URL)" to get the data info from server withouth changing the data. -status code - 200
+
+4. ".status_code" will give the HTTP status
+5. in pytest - the way to check if test is passed is by "assert" such as "assert response.status_code == 200"
+6. "response.json()" will return us all the data from the URL in dictionary data structor without need to convert to dict
+7. to create html report file we will do "pytest test_response1.py -v -s --html=report.html"
+8. if we want to see the results only in terminal: "pytest test_response1.py -v -s"
+9. when using pytest we don't need to call the function at the end - the "assert" is doing it for us, and in the terminal we run "pytest test_response1.py -v -s" and see the results
+of what FAILED/PASSED.
+
+10. when using "@pytest.fixture" - we will write this above setup function "def setup():", and when we want to reuse the setup in every other test, we will call
+the setup function as parameter in other functions.
+
+11. we use "response.post(URL, json={dict_file_name}) to send data to server.
+the {dict file name} is the name of the dictionary we want to send to server. the "json="
+automatically converts this dict to JSON format.
+
+
+12. if we want to get the value of a key inside JSON when we call "{response}.json", we nee to run :
+"{response}.json["key"]":
+if we want to assert this key has certain value : "assert {response}.json["key"]== {value}"
+
+13. if we want to assert that a certain key exist in the JSON:
+assert "key" in .json()
+
+14.in "requests.post(url, json=payload)" - we send whole new json to the server - status code : 201
+15.in "requests.put(url, json=payload)" - we are updating the current json but completely status code : 200
+16.in "requests.patch(url, json=payload)" -  we are updating only part of the existing json status code : 200
+17.in "requests.delete(url)" - we are deleting the entire JSON and we will get an empty {} - status code : 20o or 204
+
+18. If we want to run multiple API calls one the same time like in a loop - we will use "@pytest.mark.parametrize("arg", [a,b,c......]),
+and the "arg" will be inserted to the test function.
+in this case we will have only one test function and all assertion will be there.
+
+
+
+
+
+
