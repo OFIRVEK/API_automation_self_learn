@@ -6,6 +6,10 @@ THIS IS 100% MY CODE AND NO AI's.
 
 
 This contains:
--Questions the Claude code created in PDF files 
+-Questions the Claude code created in PDF files (15 PDF files)
+
 -py files according to each PDF file
+
 -HTML reports I created for some tests
+
+-EXrta LeetCode style questions

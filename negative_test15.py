@@ -1,6 +1,8 @@
 import pytest
 import requests
 
+# from assertpy.assertpy import assert_that
+
 base_url = "https://jsonplaceholder.typicode.com/posts"
 
 @pytest.mark.parametrize("userId", [99999, -1, 0, 99999999])
@@ -22,3 +24,5 @@ def test_idempotency():
 
     response2 = requests.delete(url)
     assert response2.status_code == 404
+
+
