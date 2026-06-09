@@ -15,7 +15,7 @@ def chained_API_test():
     return response_post,response_get
 
 
-@pytest.mark.xfail(reason="JSONPlaceholder doesn't actually save POSTed data")
+@pytest.mark.xfail(reason="JONPlaceholder doesn't actually save POSTed data")
 
 def test_assertions(chained_API_test):
     response_post, response_get = chained_API_test
